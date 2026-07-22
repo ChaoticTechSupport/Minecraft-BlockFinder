@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dg3mbgtgurl7g"]
+
+[ext_resource type="Script" uid="uid://dpa4xp46bmix8" path="res://mine finder/Menu.cs" id="1_x8q8y"]
+
+[node name="Menu" type="Control" unique_id=558031664]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x8q8y")
