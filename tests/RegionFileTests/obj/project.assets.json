@@ -1,0 +1,119 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "fNbt/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/fNbt.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/fNbt.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "fNbt/1.0.0": {
+      "sha512": "OiwNayfP9McvuKg0NHvEeK1w/csI+thYaEYxx+788mTvc20Sul398wmOzbnxqncEaYu1uPbf9Cbn3mS45vpwsQ==",
+      "type": "package",
+      "path": "fnbt/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/Changelog.md",
+        "docs/LICENSE.txt",
+        "docs/README.md",
+        "fnbt.1.0.0.nupkg.sha512",
+        "fnbt.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/fNbt.dll",
+        "lib/netstandard2.0/fNbt.xml"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "fNbt >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/aztec/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/aztec/RiderProjects/Minecraft-BlockFinder/tests/RegionFileTests/RegionFileTests.csproj",
+      "projectName": "RegionFileTests",
+      "projectPath": "/home/aztec/RiderProjects/Minecraft-BlockFinder/tests/RegionFileTests/RegionFileTests.csproj",
+      "packagesPath": "/home/aztec/.nuget/packages/",
+      "outputPath": "/home/aztec/RiderProjects/Minecraft-BlockFinder/tests/RegionFileTests/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/aztec/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "/usr/lib/dotnet/library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "10.0.100"
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "fNbt": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[8.0.33, 8.0.33]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.114/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

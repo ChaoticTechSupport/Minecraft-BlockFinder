@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "lPj5b/xGung=",
+  "success": true,
+  "projectFilePath": "/home/aztec/RiderProjects/Minecraft-BlockFinder/tests/RegionFileTests/RegionFileTests.csproj",
+  "expectedPackageFiles": [
+    "/home/aztec/.nuget/packages/fnbt/1.0.0/fnbt.1.0.0.nupkg.sha512",
+    "/home/aztec/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.33/microsoft.netcore.app.host.linux-x64.8.0.33.nupkg.sha512"
+  ],
+  "logs": []
+}
