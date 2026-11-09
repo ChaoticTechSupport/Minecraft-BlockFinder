@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dg3mbgtgurl7g"]
 
-[ext_resource type="Script" uid="uid://dpa4xp46bmix8" path="res://mine finder/Menu.cs" id="1_x8q8y"]
+[ext_resource type="Script" uid="uid://dpa4xp46bmix8" path="res://MinecraftToolbox/Menu.cs" id="1_x8q8y"]
 
 [node name="Menu" type="Control" unique_id=558031664]
 layout_mode = 3
@@ -10,3 +10,393 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x8q8y")
+
+[node name="Launcher" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -290.0
+offset_right = 360.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="Launcher"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Launcher/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Minecraft Toolbox"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Launcher/Content"]
+layout_mode = 2
+text = "Choose a tool to open it in its own window."
+horizontal_alignment = 1
+
+[node name="DirectoryTitle" type="Label" parent="Launcher/Content"]
+layout_mode = 2
+text = "Shared Minecraft save directory"
+
+[node name="DirectoryRow" type="HBoxContainer" parent="Launcher/Content"]
+layout_mode = 2
+
+[node name="GlobalDirectoryEdit" type="LineEdit" parent="Launcher/Content/DirectoryRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Select a world save directory..."
+
+[node name="BrowseGlobalDirectoryButton" type="Button" parent="Launcher/Content/DirectoryRow"]
+layout_mode = 2
+text = "Browse..."
+
+[node name="GlobalDirectoryStatus" type="Label" parent="Launcher/Content"]
+layout_mode = 2
+text = "No directory selected"
+autowrap_mode = 2
+
+[node name="ToolsTitle" type="Label" parent="Launcher/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Apps"
+
+[node name="FinderButton" type="Button" parent="Launcher/Content"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "Block Finder\nSearch region files for a block"
+
+[node name="BrowserButton" type="Button" parent="Launcher/Content"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "File Browser\nBrowse save data files"
+
+[node name="EditorButton" type="Button" parent="Launcher/Content"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "NBT File Editor\nInspect and edit NBT files"
+
+[node name="FinderWindow" type="Window" parent="."]
+title = "Block Finder"
+position = Vector2i(120, 100)
+size = Vector2i(900, 680)
+visible = false
+
+[node name="Content" type="MarginContainer" parent="FinderWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="FinderWindow/Content"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PathLabel" type="Label" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+text = "Region Directory Path:"
+
+[node name="PathRow" type="HBoxContainer" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+
+[node name="PathEdit" type="LineEdit" parent="FinderWindow/Content/Layout/PathRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Path to the world's region folder"
+
+[node name="BrowsePathButton" type="Button" parent="FinderWindow/Content/Layout/PathRow"]
+layout_mode = 2
+text = "Browse..."
+
+[node name="TargetLabel" type="Label" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+text = "Target Block:"
+
+[node name="TargetEdit" type="LineEdit" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+text = "cobblemon:roseli_berry"
+
+[node name="CoordinatesLabel" type="Label" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+text = "Reference Coordinates (X, Y, Z):"
+
+[node name="CoordinatesRow" type="HBoxContainer" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+
+[node name="XEdit" type="LineEdit" parent="FinderWindow/Content/Layout/CoordinatesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-10"
+placeholder_text = "X"
+
+[node name="YEdit" type="LineEdit" parent="FinderWindow/Content/Layout/CoordinatesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "64"
+placeholder_text = "Y"
+
+[node name="ZEdit" type="LineEdit" parent="FinderWindow/Content/Layout/CoordinatesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-105"
+placeholder_text = "Z"
+
+[node name="ButtonsRow" type="HBoxContainer" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+
+[node name="ScanButton" type="Button" parent="FinderWindow/Content/Layout/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Scan"
+
+[node name="StopButton" type="Button" parent="FinderWindow/Content/Layout/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Stop"
+
+[node name="ProgressBar" type="ProgressBar" parent="FinderWindow/Content/Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+value = 0.0
+
+[node name="Output" type="RichTextLabel" parent="FinderWindow/Content/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+
+[node name="BrowserWindow" type="Window" parent="."]
+title = "File Browser"
+position = Vector2i(160, 120)
+size = Vector2i(900, 680)
+visible = false
+
+[node name="Content" type="MarginContainer" parent="BrowserWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="BrowserWindow/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="BrowserWindow/Content/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "File Browser"
+
+[node name="Toolbar" type="HBoxContainer" parent="BrowserWindow/Content/Layout"]
+layout_mode = 2
+
+[node name="RefreshButton" type="Button" parent="BrowserWindow/Content/Layout/Toolbar"]
+layout_mode = 2
+text = "Refresh"
+
+[node name="OpenFolderButton" type="Button" parent="BrowserWindow/Content/Layout/Toolbar"]
+layout_mode = 2
+text = "Open Folder"
+
+[node name="FilesLabel" type="Label" parent="BrowserWindow/Content/Layout"]
+layout_mode = 2
+text = "Files"
+
+[node name="FileListTree" type="Tree" parent="BrowserWindow/Content/Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 1
+hide_root = true
+
+[node name="FileBrowserStatus" type="Label" parent="BrowserWindow/Content/Layout"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "No directory selected"
+autowrap_mode = 2
+
+[node name="EditorWindow" type="Window" parent="."]
+title = "NBT File Editor"
+position = Vector2i(200, 140)
+size = Vector2i(1100, 720)
+visible = false
+
+[node name="Content" type="MarginContainer" parent="EditorWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="EditorWindow/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="EditorWindow/Content/Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "NBT File Editor"
+
+[node name="WorkArea" type="HBoxContainer" parent="EditorWindow/Content/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="TreePanel" type="VBoxContainer" parent="EditorWindow/Content/Layout/WorkArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TreeTitle" type="Label" parent="EditorWindow/Content/Layout/WorkArea/TreePanel"]
+layout_mode = 2
+text = "NBT Structure"
+
+[node name="ElementSearchRow" type="HBoxContainer" parent="EditorWindow/Content/Layout/WorkArea/TreePanel"]
+layout_mode = 2
+
+[node name="ElementSearchEdit" type="LineEdit" parent="EditorWindow/Content/Layout/WorkArea/TreePanel/ElementSearchRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Find by key or value"
+
+[node name="FindElementButton" type="Button" parent="EditorWindow/Content/Layout/WorkArea/TreePanel/ElementSearchRow"]
+layout_mode = 2
+text = "Find Next"
+
+[node name="ElementSearchStatus" type="Label" parent="EditorWindow/Content/Layout/WorkArea/TreePanel"]
+layout_mode = 2
+text = ""
+
+[node name="NbtTree" type="Tree" parent="EditorWindow/Content/Layout/WorkArea/TreePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 1
+hide_root = true
+
+[node name="DetailsPanel" type="VBoxContainer" parent="EditorWindow/Content/Layout/WorkArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="DetailsTitle" type="Label" parent="EditorWindow/Content/Layout/WorkArea/DetailsPanel"]
+layout_mode = 2
+text = "Details"
+
+[node name="EditButtons" type="HBoxContainer" parent="EditorWindow/Content/Layout/WorkArea/DetailsPanel"]
+layout_mode = 2
+
+[node name="SaveFileButton" type="Button" parent="EditorWindow/Content/Layout/WorkArea/DetailsPanel/EditButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Save"
+
+[node name="EditValueButton" type="Button" parent="EditorWindow/Content/Layout/WorkArea/DetailsPanel/EditButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Edit Value"
+
+[node name="CopyPathButton" type="Button" parent="EditorWindow/Content/Layout/WorkArea/DetailsPanel/EditButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Copy Path"
+
+[node name="EditorOutput" type="RichTextLabel" parent="EditorWindow/Content/Layout/WorkArea/DetailsPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = true
+text = "Select a file in the browser or open a chunk to inspect its NBT data."
+
+[node name="EditPopup" type="PopupPanel" parent="EditorWindow"]
+size = Vector2i(400, 200)
+visible = false
+
+[node name="Content" type="MarginContainer" parent="EditorWindow/EditPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="EditorWindow/EditPopup/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EditValueLabel" type="Label" parent="EditorWindow/EditPopup/Content/Layout"]
+layout_mode = 2
+text = "New value:"
+
+[node name="EditValueEdit" type="LineEdit" parent="EditorWindow/EditPopup/Content/Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Buttons" type="HBoxContainer" parent="EditorWindow/EditPopup/Content/Layout"]
+layout_mode = 2
+
+[node name="ApplyEditButton" type="Button" parent="EditorWindow/EditPopup/Content/Layout/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply"
+
+[node name="CancelEditButton" type="Button" parent="EditorWindow/EditPopup/Content/Layout/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="RegionDirectoryDialog" type="FileDialog" parent="FinderWindow"]
+title = "Select Region Directory"
+size = Vector2i(600, 400)
+visible = false
+file_mode = 2
+access = 2
+
+[node name="GlobalDirectoryDialog" type="FileDialog" parent="Launcher"]
+title = "Select Save Directory"
+size = Vector2i(600, 400)
+visible = false
+file_mode = 2
+access = 2
